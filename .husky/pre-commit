@@ -1,0 +1,3 @@
+# Run lint and typecheck before every commit
+# WHY: Catch errors before they enter git history — faster than waiting for CI
+pnpm lint && pnpm typecheck

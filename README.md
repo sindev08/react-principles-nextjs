@@ -1,36 +1,66 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# React Principles — Next.js Starter
 
-## Getting Started
+A production-ready Next.js starter template that implements the patterns and principles from [reactprinciples.dev](https://reactprinciples.dev). Use this as a starting point for real-world React applications.
 
-First, run the development server:
+## Stack
+
+| Category | Technology |
+|---|---|
+| Framework | Next.js 16 (App Router) |
+| Language | TypeScript (strict mode) |
+| Package Manager | pnpm |
+| Styling | Tailwind CSS v4 |
+| State Management | Zustand |
+| Data Fetching | TanStack Query |
+| Forms | React Hook Form + Zod |
+| Tables | TanStack Table |
+| Testing | Vitest + Testing Library |
+| Linting | ESLint 9 (flat config) |
+| Git Hooks | Husky |
+
+## Quick Start
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
+# Clone the repo
+git clone https://github.com/sindev08/react-principles-nextjs.git
+cd react-principles-nextjs
+
+# Install dependencies
+pnpm install
+
+# Copy environment variables
+cp .env.example .env.local
+
+# Start the dev server (port 3001)
 pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Scripts
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+| Command | Description |
+|---|---|
+| `pnpm dev` | Start dev server on port 3001 |
+| `pnpm build` | Production build |
+| `pnpm lint` | Run ESLint |
+| `pnpm typecheck` | Run TypeScript type checking |
+| `pnpm test` | Run tests with Vitest |
+| `pnpm test:watch` | Run tests in watch mode |
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Project Structure
+
+See [ARCHITECTURE.md](./ARCHITECTURE.md) for a detailed breakdown of the folder structure and architectural decisions.
+
+## API
+
+This starter uses [DummyJSON](https://dummyjson.com) as a mock API for demonstration purposes. The API client (`src/lib/api-client.ts`) is a fetch-based factory that can be pointed at any REST API by changing `NEXT_PUBLIC_API_URL`.
 
 ## Learn More
 
-To learn more about Next.js, take a look at the following resources:
+- [React Principles](https://reactprinciples.dev) — The cookbook and pattern library this starter is based on
+- [Next.js Docs](https://nextjs.org/docs) — Framework documentation
+- [TanStack Query](https://tanstack.com/query) — Data fetching library
+- [Zustand](https://zustand.docs.pmnd.rs/) — State management
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## License
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+MIT

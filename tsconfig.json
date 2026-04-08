@@ -1,23 +1,67 @@
 {
   "compilerOptions": {
+    // Target ES2017 — supports async/await natively, widely supported by modern browsers
     "target": "ES2017",
+
+    // Include DOM APIs and latest ECMAScript features
     "lib": ["dom", "dom.iterable", "esnext"],
+
+    // Allow importing .js files (useful for interop with JS libraries)
     "allowJs": true,
+
+    // Skip type-checking node_modules — speeds up compilation significantly
     "skipLibCheck": true,
+
+    // Enable ALL strict type-checking options:
+    // - strictNullChecks: null/undefined are distinct types
+    // - strictFunctionTypes: stricter function parameter checking
+    // - strictBindCallApply: stricter bind/call/apply checking
+    // - noImplicitAny: error on expressions with implied 'any' type
+    // - noImplicitThis: error on 'this' with implied 'any' type
     "strict": true,
+
+    // Don't emit JS files — Next.js handles compilation via SWC
     "noEmit": true,
+
+    // Enables default imports from modules with no default export
+    // Required for compatibility with CommonJS modules (e.g., React)
     "esModuleInterop": true,
+
+    // Use ESNext module system — Next.js transpiles this for us
     "module": "esnext",
+
+    // Use bundler resolution — matches how Next.js/webpack resolves modules
+    // This is the modern approach (not "node" or "node16")
     "moduleResolution": "bundler",
+
+    // Allow importing .json files as modules
     "resolveJsonModule": true,
+
+    // Ensure each file can be transpiled independently
+    // Required by Next.js SWC compiler
     "isolatedModules": true,
+
+    // Use the new JSX transform (React 17+) — no need to import React
     "jsx": "react-jsx",
+
+    // Cache compilation results for faster subsequent builds
     "incremental": true,
+
+    // Catch missing return statements in switch cases
+    "noFallthroughCasesInSwitch": true,
+
+    // Ensure consistent casing in import paths (prevents bugs on case-sensitive OS)
+    "forceConsistentCasingInFileNames": true,
+
+    // Next.js plugin for route type generation
     "plugins": [
       {
         "name": "next"
       }
     ],
+
+    // Path alias: import from "@/features/users" instead of "../../features/users"
+    // Maps @/ to the src/ directory
     "paths": {
       "@/*": ["./src/*"]
     }
