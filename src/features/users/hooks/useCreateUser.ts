@@ -2,10 +2,9 @@
 
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 
-import { api } from "@/lib/api";
-import { ENDPOINTS } from "@/lib/endpoints";
 import { queryKeys } from "@/lib/query-keys";
-import type { CreateUserInput, User } from "@/shared/types/user";
+import { usersService } from "@/lib/services/users";
+import type { CreateUserInput } from "@/shared/types/user";
 
 /**
  * Creates a new user via DummyJSON.
@@ -23,8 +22,7 @@ export function useCreateUser() {
   const queryClient = useQueryClient();
 
   return useMutation({
-    mutationFn: (data: CreateUserInput) =>
-      api.post<User>(ENDPOINTS.users.create, data),
+    mutationFn: (data: CreateUserInput) => usersService.create(data),
     onSuccess: () => {
       // Invalidate all user list queries so they refetch with the new user
       void queryClient.invalidateQueries({ queryKey: queryKeys.users.lists() });

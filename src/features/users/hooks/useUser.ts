@@ -2,10 +2,8 @@
 
 import { useQuery } from "@tanstack/react-query";
 
-import { api } from "@/lib/api";
-import { ENDPOINTS } from "@/lib/endpoints";
 import { queryKeys } from "@/lib/query-keys";
-import type { User } from "@/shared/types/user";
+import { usersService } from "@/lib/services/users";
 
 /**
  * Fetches a single user by ID from DummyJSON.
@@ -17,6 +15,6 @@ import type { User } from "@/shared/types/user";
 export function useUser(id: number) {
   return useQuery({
     queryKey: queryKeys.users.detail(id),
-    queryFn: () => api.get<User>(ENDPOINTS.users.detail(id)),
+    queryFn: () => usersService.getById(id),
   });
 }
