@@ -1,0 +1,4 @@
+# Run tests before every push
+# WHY: Tests are slower than lint/typecheck so we skip them on commit.
+# Pre-push is the right checkpoint — catch test failures before they reach CI.
+pnpm test
