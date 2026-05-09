@@ -16,6 +16,7 @@ import { Navbar, PageLayout, Sidebar } from "@/shared/components";
 
 const sidebarItems = [
   { label: "All Users", href: "/users" },
+  { label: "Table View", href: "/users/table" },
   { label: "Create User", href: "/users/new" },
 ];
 
